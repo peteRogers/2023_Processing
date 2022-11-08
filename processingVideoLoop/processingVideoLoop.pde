@@ -1,4 +1,3 @@
-
 import processing.video.*;
 Movie movie;
 
@@ -10,8 +9,6 @@ void setup() {
   noCursor();
 }
 
-
-
 void movieEvent(Movie m) {
   m.read();
 }
@@ -19,7 +16,7 @@ void movieEvent(Movie m) {
 void draw() {
   fill(0,0,0,20);
   rect(0, 0, width, height);
-
+  //draw video
   float angle=angleBetweenPoints(new PVector(width/2, height/2), new PVector(mouseX, mouseY));
   pushMatrix();
   translate(mouseX, mouseY);
