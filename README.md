@@ -1,19 +1,28 @@
 # Processing 3 Day
 
 
+```java
+#include <Wire.h>
+#include <VL53L0X.h>
 
-PImage win;
-void setup(){
-  size(600,600);
-  win = loadImage("stainWindow.png");
-  background(255);
-  colorMode(HSB);
-  imageMode(CENTER);
+VL53L0X distanceSensor;
+
+void setup() {
+  Serial.begin(115200);
+  Wire.begin();
+  distanceSensor.setTimeout(500);
+  
+  if (!distanceSensor.init()) {
+    Serial.println("Failed to detect and initialize sensor!");
+    while (1) {}
+  }
 }
 
-void draw(){
-  background(0);
-  translate(width/2, height/2);
-  rotate(radians(mouseX));
-  image(win, 0, 0,width, height);
+void loop() {
+  // put your main code here, to run repeatedly:
+  int dist = distanceSensor.readRangeSingleMillimeters();
+  Serial.println(dist);
+  delay(100);
 }
+
+```
