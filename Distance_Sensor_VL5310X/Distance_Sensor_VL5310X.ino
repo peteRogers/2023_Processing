@@ -17,5 +17,5 @@ void loop() {
   // put your main code here, to run repeatedly:
   int dist = distanceSensor.readRangeSingleMillimeters();
   Serial.println(dist);
-  delay(100);
+  delay(20);
 }
