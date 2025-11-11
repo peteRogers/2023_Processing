@@ -5,7 +5,7 @@ int sensor = 0;
 void setup(){
   size(1024, 1024);
   printArray(Serial.list());
-  myPort = new Serial(this, Serial.list()[3], 115200);
+  myPort = new Serial(this, Serial.list()[3], 9600);
 }
 
 
